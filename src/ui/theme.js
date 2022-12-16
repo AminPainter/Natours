@@ -18,6 +18,7 @@ export default createTheme({
 
   borderRadius: {
     large: '10rem',
+    tiny: '3px',
   },
 
   utils: {

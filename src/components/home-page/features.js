@@ -1,33 +1,27 @@
 import React from 'react';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  styled,
-  Typography,
-} from '@mui/material';
+import { Card, CardContent, Stack, styled, Typography } from '@mui/material';
 
-import { Section, Grid } from 'ui';
+import { Section, Grid, Icon } from 'ui';
 import backgroundImg from 'images/nat-4.jpg';
 
 const feats = [
   {
-    icon: 'A',
+    icon: 'Globe',
     title: 'explore the world',
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur.',
   },
   {
-    icon: 'B',
+    icon: 'Compass',
     title: 'meet nature',
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur.',
   },
   {
-    icon: 'C',
+    icon: 'Map',
     title: 'find your way',
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur.',
   },
   {
-    icon: 'D',
+    icon: 'Heart',
     title: 'live a healthier life',
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur.',
   },
@@ -35,16 +29,18 @@ const feats = [
 
 const Feature = ({ icon, title, text }) => (
   <FeatureCard>
-    <CardHeader>{icon}</CardHeader>
+    <Stack alignItems='center'>
+      <Icon name={icon} size={70} />
+    </Stack>
     <CardContent>
       <Typography
-        mt={2}
+        my={2}
         textAlign='center'
         variant='h6'
         textTransform='uppercase'>
         {title}
       </Typography>
-      <Typography mt={2} textAlign='center' variant='body2'>
+      <Typography textAlign='center' variant='body1'>
         {text}
       </Typography>
     </CardContent>
@@ -53,9 +49,9 @@ const Feature = ({ icon, title, text }) => (
 
 const Features = () => (
   <SectionWithBackground>
-    <Grid columns={4} gap={6}>
-      {feats.map(feat => (
-        <Feature {...feat} />
+    <Grid columns={4} gap={7.5}>
+      {feats.map((feat, i) => (
+        <Feature key={i} {...feat} />
       ))}
     </Grid>
   </SectionWithBackground>
@@ -64,7 +60,7 @@ const Features = () => (
 export default Features;
 
 const FeatureCard = styled(Card)(({ theme }) => ({
-  padding: theme.spacing(1.5),
+  padding: theme.spacing(4, 1.5, 2),
   backgroundColor: 'rgba(255, 255, 255, .85)',
   transition: 'all .3s',
 
@@ -79,5 +75,5 @@ const SectionWithBackground = styled(Section)(({ theme }) => ({
   backgroundPosition: 'top',
   marginTop: theme.spacing(-25),
   padding: theme.spacing(30, 0, 50),
-  clipPath: 'polygon(0 20vh, 100% 0, 100% 80vh, 0 100%)',
+  clipPath: 'polygon(0 20%, 100% 0, 100% 80%, 0 100%)',
 }));

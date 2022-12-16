@@ -55,7 +55,7 @@ const Photo = styled('img')(
     right,
     width: '20rem',
     boxShadow: '0 1.5rem 2rem rgba(0,0,0,0.2)',
-    borderRadius: '3px',
+    borderRadius: theme.borderRadius.tiny,
     transition: 'all .2s',
     outline: '1rem solid transparent',
     outlineOffset: '1rem',

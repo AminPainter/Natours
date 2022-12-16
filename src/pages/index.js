@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Hero, Gallery, Features } from 'components/home-page';
+import { Hero, Gallery, Features, Tours } from 'components/home-page';
 
 const IndexPage = () => {
   return (
@@ -8,6 +8,7 @@ const IndexPage = () => {
       <Hero />
       <Gallery />
       <Features />
+      <Tours />
     </>
   );
 };
