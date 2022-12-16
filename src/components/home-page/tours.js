@@ -3,6 +3,7 @@ import { Stack } from '@mui/material';
 
 import { Section, Heading, Grid, Button } from 'ui';
 import Tour from 'components/tour';
+import TourCardSkeleton from 'components/loaders/tour-card';
 
 import testImg1 from 'images/nat-5.jpg';
 import testImg2 from 'images/nat-6.jpg';
@@ -33,6 +34,9 @@ const Tours = () => (
       {data.map((tour, i) => (
         <Tour {...tour} key={i} gradient={gradients[i]} />
       ))}
+      <TourCardSkeleton />
+      <TourCardSkeleton />
+      <TourCardSkeleton />
     </Grid>
 
     <Stack alignItems='center'>
