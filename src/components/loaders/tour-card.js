@@ -24,7 +24,6 @@ const TourCardSkeleton = () => (
 );
 
 const SkeletonContainer = styled(Stack)({
-  backgroundColor: 'common.white',
   boxShadow: '0 .5rem 1rem rgba(0,0,0,0.1)',
 });
 
