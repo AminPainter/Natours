@@ -35,22 +35,22 @@ const Briefing = ({ tour }) => (
           <QuickPoint
             element={<Icon name='Calendar' />}
             mainText='next date'
-            subText={tour.startDates[0]}
+            subText={tour?.startDates[0]}
           />
           <QuickPoint
             element={<Icon name='BarChart' />}
             mainText='difficulty'
-            subText={tour.difficulty}
+            subText={tour?.difficulty}
           />
           <QuickPoint
             element={<Icon name='Users' />}
             mainText='participants'
-            subText={tour.maxGroupSize}
+            subText={tour?.maxGroupSize}
           />
           <QuickPoint
             element={<Icon name='Star' />}
             mainText='rating'
-            subText={`${tour.ratingsAverage} / 5`}
+            subText={`${tour?.ratingsAverage} / 5`}
           />
         </Stack>
 
@@ -59,7 +59,7 @@ const Briefing = ({ tour }) => (
         </Heading>
 
         <Stack gap={1}>
-          {tour.guides.map(guide => (
+          {tour?.guides.map(guide => (
             <QuickPoint
               element={<Avatar alt={guide.name} src={testImg} />}
               mainText={guide.role}
@@ -71,7 +71,7 @@ const Briefing = ({ tour }) => (
     </GreyBox>
 
     <Stack gap={4} p={10} pt={35}>
-      <Heading variant='h5'>about {tour.title}</Heading>
+      <Heading variant='h5'>about {tour?.title}</Heading>
       <p>
         In publishing and graphic design, Lorem ipsum is a placeholder text
         commonly used to demonstrate the visual form of a document or a typeface
