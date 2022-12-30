@@ -1,12 +1,4 @@
 import React from 'react';
-import { ThemeProvider } from '@mui/material';
+import { App } from 'components/app';
 
-import { theme } from 'ui';
-import Layout from 'components/layout';
-import 'styles/global.css';
-
-export const wrapRootElement = ({ element }) => (
-  <ThemeProvider theme={theme}>{element}</ThemeProvider>
-);
-
-export const wrapPageElement = ({ element }) => <Layout>{element}</Layout>;
+export const wrapPageElement = ({ element }) => <App>{element}</App>;

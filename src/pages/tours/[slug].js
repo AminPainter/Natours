@@ -1,11 +1,18 @@
 import React from 'react';
+import { useQuery } from 'react-query';
 
 import SiteSeo from 'components/seo';
-import { tours } from 'dev-data/data';
 import { TourIntro, Briefing, Gallery } from 'components/tour-page';
+import { queryKeys } from 'utils/app-constants';
+import { getTourBySlug } from 'utils/query-functions';
 
 const TourDetailsPage = ({ params: { slug } }) => {
-  const tour = tours.find(tour => tour.slug === slug);
+  const { data: tour, isLoading } = useQuery(
+    [queryKeys.tourBySlug, slug],
+    getTourBySlug
+  );
+
+  if (isLoading) return <>Loading</>;
 
   return (
     <>

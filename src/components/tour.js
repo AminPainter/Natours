@@ -19,12 +19,12 @@ const TourBullet = ({ icon, text }) => (
   </Stack>
 );
 
-const Tour = ({ gradient, coverImage, title, slug }) => (
+const Tour = ({ gradient, imageCover, name, slug }) => (
   <TourCard>
     <TourHeader>
-      <TourMedia gradient={gradient} img={coverImage} />
+      <TourMedia gradient={gradient} img={imageCover} />
       <TourTitleBox variant='h5'>
-        <TourTitle gradient={gradient}>{title}</TourTitle>
+        <TourTitle gradient={gradient}>{name}</TourTitle>
       </TourTitleBox>
     </TourHeader>
 

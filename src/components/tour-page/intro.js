@@ -4,27 +4,27 @@ import { Container, Stack, styled, Typography } from '@mui/material';
 import { Icon, Button } from 'ui';
 
 const TourIntro = ({ tour }) => (
-  <Header tourImg={tour?.coverImage}>
+  <Header tourImg={tour.imageCover}>
     <Container maxWidth='sm'>
       <Typography
         mt={15}
         variant='h2'
         textAlign='center'
         textTransform='uppercase'>
-        <TourHeading>{tour?.title}</TourHeading>
+        <TourHeading>{tour.name}</TourHeading>
       </Typography>
 
       <Stack direction='row' justifyContent='center' gap={2.5} mt={3}>
         <Stack direction='row' alignItems='center'>
           <Icon name='Clock' color='common.white' />
           <Typography color='common.white' variant='body1'>
-            {tour?.duration} days tour
+            {tour.duration} days tour
           </Typography>
         </Stack>
         <Stack direction='row' alignItems='center'>
           <Icon name='MapPin' color='common.white' />
           <Typography color='common.white' variant='body1'>
-            {tour?.startLocation}
+            {tour.startLocation}
           </Typography>
         </Stack>
       </Stack>

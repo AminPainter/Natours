@@ -35,22 +35,24 @@ const Briefing = ({ tour }) => (
           <QuickPoint
             element={<Icon name='Calendar' />}
             mainText='next date'
-            subText={tour?.startDates[0]}
+            subText={new Intl.DateTimeFormat().format(
+              new Date(tour.startDates[0])
+            )}
           />
           <QuickPoint
             element={<Icon name='BarChart' />}
             mainText='difficulty'
-            subText={tour?.difficulty}
+            subText={tour.difficulty}
           />
           <QuickPoint
             element={<Icon name='Users' />}
             mainText='participants'
-            subText={tour?.maxGroupSize}
+            subText={tour.maxGroupSize}
           />
           <QuickPoint
             element={<Icon name='Star' />}
             mainText='rating'
-            subText={`${tour?.ratingsAverage} / 5`}
+            subText={`${tour.ratingsAverage} / 5`}
           />
         </Stack>
 
@@ -59,7 +61,7 @@ const Briefing = ({ tour }) => (
         </Heading>
 
         <Stack gap={1}>
-          {tour?.guides.map(guide => (
+          {tour.guides.map(guide => (
             <QuickPoint
               element={<Avatar alt={guide.name} src={testImg} />}
               mainText={guide.role}
@@ -71,19 +73,8 @@ const Briefing = ({ tour }) => (
     </GreyBox>
 
     <Stack gap={4} p={10} pt={35}>
-      <Heading variant='h5'>about {tour?.title}</Heading>
-      <p>
-        In publishing and graphic design, Lorem ipsum is a placeholder text
-        commonly used to demonstrate the visual form of a document or a typeface
-        without relying on meaningful content. Lorem ipsum may be used as a
-        placeholder before final copy is available.
-      </p>
-      <p>
-        In publishing and graphic design, Lorem ipsum is a placeholder text
-        commonly used to demonstrate the visual form of a document or a typeface
-        without relying on meaningful content. Lorem ipsum may be used as a
-        placeholder before final copy is available.
-      </p>
+      <Heading variant='h5'>about {tour.title}</Heading>
+      <p>{tour.description}</p>
     </Stack>
   </Grid>
 );
