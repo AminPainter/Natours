@@ -17,14 +17,12 @@ const IconWrapper = ({ name, size = 20, color = 'primary.main', ...rest }) => {
   );
 };
 
-const StyledIcon = styled(Icon)(({ size }) => ({
+const StyledIcon = styled(Icon)(({ theme, size }) => ({
   width: `${size}px`,
   height: `${size}px`,
   minWidth: '1.875rem',
   minHeight: '1.875rem',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
+  ...theme.utils.flexBox,
 }));
 
 export default IconWrapper;

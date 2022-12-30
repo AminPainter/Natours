@@ -1,21 +1,27 @@
 import React from 'react';
 import { styled, Typography } from '@mui/material';
 
-const Heading = ({ children }) => (
-  <StyledTypography
-    textAlign='center'
+const Heading = ({
+  children,
+  textAlign = 'center',
+  variant = 'h4',
+  ...rest
+}) => (
+  <Typography
     textTransform='uppercase'
-    variant='h4'
-    letterSpacing={2}
-    fontWeight={600}>
-    {children}
-  </StyledTypography>
+    textAlign={textAlign}
+    variant={variant}
+    fontWeight={600}
+    {...rest}>
+    <StyledSpan>{children}</StyledSpan>
+  </Typography>
 );
 
 export default Heading;
 
-const StyledTypography = styled(Typography)(({ theme }) => ({
+const StyledSpan = styled('span')(({ theme }) => ({
   color: 'transparent',
+  display: 'inline-block',
   WebkitBackgroundClip: 'text',
   backgroundImage: `linear-gradient(to right bottom, ${theme.palette.primary.light}, ${theme.palette.primary.dark})`,
   transition: 'all .3s',

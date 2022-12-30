@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import {
   Card,
   CardMedia,
@@ -18,7 +19,7 @@ const TourBullet = ({ icon, text }) => (
   </Stack>
 );
 
-const Tour = ({ gradient, coverImage, title }) => (
+const Tour = ({ gradient, coverImage, title, slug }) => (
   <TourCard>
     <TourHeader>
       <TourMedia gradient={gradient} img={coverImage} />
@@ -48,7 +49,9 @@ const Tour = ({ gradient, coverImage, title }) => (
         <Typography variant='body1'>$479 per person</Typography>
         <Typography variant='body1'>4.3 rating</Typography>
       </Stack>
-      <Button variant='primary'>details</Button>
+      <Button component={Link} to={`/tours/${slug}`} variant='primary'>
+        details
+      </Button>
     </TourCta>
   </TourCard>
 );
@@ -71,7 +74,7 @@ const TourMedia = styled(CardMedia)(
     gradient = [theme.palette.primary.light, theme.palette.primary.dark],
   }) => ({
     height: '100%',
-    clipPath: 'polygon(0 0, 100% 0, 100% 80%, 0 100%)',
+    clipPath: theme.clipPath.singleWedge,
     backgroundImage: `linear-gradient(to right bottom, ${gradient[0]}, ${gradient[1]}), url(${img})`,
     backgroundBlendMode: 'screen',
   })
@@ -92,7 +95,6 @@ const TourTitle = styled('span')(
     theme,
     gradient = [theme.palette.primary.light, theme.palette.primary.dark],
   }) => ({
-    display: 'inline !important',
     padding: theme.spacing(2),
     color: theme.palette.common.white,
     backgroundImage: `linear-gradient(to right bottom, ${gradient[0]}, ${gradient[1]})`,

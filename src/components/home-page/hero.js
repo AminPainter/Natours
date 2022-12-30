@@ -24,7 +24,7 @@ const Header = styled('header')(({ theme }) => ({
   padding: theme.spacing(5),
   backgroundImage: theme.utils.createGradient(heroImg),
   backgroundPosition: 'top',
-  clipPath: 'polygon(0 0, 100% 0, 100% 80vh, 0 100%)',
+  clipPath: theme.clipPath.singleWedge,
 }));
 
 const Logo = styled('img')({

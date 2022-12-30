@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 
-const Grid = ({ children, columns = 3, gap = 10, ...rest }) => (
+const Grid = ({ children, columns = 3, gap = 5.5, ...rest }) => (
   <Box
     display='grid'
     gridTemplateColumns={`repeat(${columns}, 1fr)`}

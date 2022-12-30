@@ -49,7 +49,7 @@ const Feature = ({ icon, title, text }) => (
 
 const Features = () => (
   <SectionWithBackground>
-    <Grid columns={4} gap={7.5}>
+    <Grid columns={4}>
       {feats.map((feat, i) => (
         <Feature key={i} {...feat} />
       ))}
@@ -75,5 +75,5 @@ const SectionWithBackground = styled(Section)(({ theme }) => ({
   backgroundPosition: 'top',
   marginTop: theme.spacing(-25),
   padding: theme.spacing(30, 0, 50),
-  clipPath: 'polygon(0 20%, 100% 0, 100% 80%, 0 100%)',
+  clipPath: theme.clipPath.dualWedge,
 }));

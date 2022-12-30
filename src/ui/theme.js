@@ -21,9 +21,21 @@ export default createTheme({
     tiny: '3px',
   },
 
+  clipPath: {
+    singleWedge: 'polygon(0 0, 100% 0, 100% 80%, 0 100%)',
+    dualWedge: 'polygon(0 20%, 100% 0, 100% 80%, 0 100%)',
+  },
+
   utils: {
     createGradient(img) {
-      return `linear-gradient(to right bottom, rgba(126, 213, 111, .8), rgba(40, 180, 133, .8)), url(${img})`;
+      return img
+        ? `linear-gradient(to right bottom, rgba(126, 213, 111, .8), rgba(40, 180, 133, .8)), url(${img})`
+        : 'linear-gradient(to right bottom, #7ed56f, #28b485)';
+    },
+    flexBox: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
   },
 });

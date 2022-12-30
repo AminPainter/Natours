@@ -1,20 +1,19 @@
 import React from 'react';
 
 import { Hero, Gallery, Features, Tours } from 'components/home-page';
+import SiteSeo from 'components/seo';
 
-const IndexPage = () => {
-  return (
-    <>
-      <Hero />
-      <Gallery />
-      <Features />
-      <Tours />
-    </>
-  );
-};
+const IndexPage = () => (
+  <>
+    <Hero />
+    <Gallery />
+    <Features />
+    <Tours />
+  </>
+);
 
 export default IndexPage;
 
 export const Head = () => (
-  <title>Natours | Exciting Tours for Adventurous People</title>
+  <SiteSeo title='Exciting Tours for Adventurous People' />
 );
