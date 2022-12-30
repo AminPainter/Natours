@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'gatsby';
 import {
   Card,
-  CardMedia,
   CardContent,
   CardActions,
   Stack,
   styled,
   Typography,
+  Box,
 } from '@mui/material';
 
 import { Button, Grid, Icon } from 'ui';
@@ -22,7 +22,7 @@ const TourBullet = ({ icon, text }) => (
 const Tour = ({ gradient, imageCover, name, slug }) => (
   <TourCard>
     <TourHeader>
-      <TourMedia gradient={gradient} img={imageCover} />
+      <TourMedia gradient={gradient} img={imageCover} image={null} />
       <TourTitleBox variant='h5'>
         <TourTitle gradient={gradient}>{name}</TourTitle>
       </TourTitleBox>
@@ -67,7 +67,7 @@ const TourHeader = styled('div')({
   height: '15rem',
 });
 
-const TourMedia = styled(CardMedia)(
+const TourMedia = styled(Box)(
   ({
     theme,
     img,
@@ -77,6 +77,7 @@ const TourMedia = styled(CardMedia)(
     clipPath: theme.clipPath.singleWedge,
     backgroundImage: `linear-gradient(to right bottom, ${gradient[0]}, ${gradient[1]}), url(${img})`,
     backgroundBlendMode: 'screen',
+    backgroundSize: 'cover',
   })
 );
 

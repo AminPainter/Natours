@@ -2,8 +2,13 @@ import React from 'react';
 import { styled, Button, Typography } from '@mui/material';
 
 const ButtonPrimary = ({ children, variant = 'secondary', ...rest }) => (
-  <StyledButton variant='contained' primary={variant !== 'secondary'} {...rest}>
-    <StyledTypography primary={variant !== 'secondary'} variant='subtitle1'>
+  <StyledButton
+    variant='contained'
+    primary={variant !== 'secondary' ? 1 : 0}
+    {...rest}>
+    <StyledTypography
+      primary={variant !== 'secondary' ? 1 : 0}
+      variant='subtitle1'>
       {children}
     </StyledTypography>
   </StyledButton>

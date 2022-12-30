@@ -61,8 +61,9 @@ const Briefing = ({ tour }) => (
         </Heading>
 
         <Stack gap={1}>
-          {tour.guides.map(guide => (
+          {tour.guides.map((guide, i) => (
             <QuickPoint
+              key={i}
               element={<Avatar alt={guide.name} src={testImg} />}
               mainText={guide.role}
               subText={guide.name}
