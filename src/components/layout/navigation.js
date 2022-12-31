@@ -11,6 +11,7 @@ import {
 import useUser from 'hooks/use-user';
 import logoImg from 'images/logo-white.png';
 import googleImg from 'images/google.png';
+import { Link } from 'gatsby';
 
 const Navigation = () => {
   const { user } = useUser();
@@ -18,9 +19,9 @@ const Navigation = () => {
   return (
     <GlassyNav position='sticky'>
       <Navbar>
-        <div>
+        <Link to='/'>
           <Logo src={logoImg} />
-        </div>
+        </Link>
 
         {user ? (
           <Tooltip title={user.name} arrow>
