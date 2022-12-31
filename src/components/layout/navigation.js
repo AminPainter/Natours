@@ -29,7 +29,7 @@ const Navigation = () => {
         ) : (
           <GoogleButton
             onClick={() => {
-              location.assign(
+              window.location.assign(
                 `${
                   process.env.GATSBY_SERVICE_URL
                 }/auth/login?sourceUri=${encodeURIComponent(

@@ -41,6 +41,7 @@ export default TourIntro;
 const Header = styled('header')(({ theme, tourImg }) => ({
   height: '95vh',
   padding: theme.spacing(5),
+  marginTop: theme.spacing(-10),
   backgroundImage: theme.utils.createGradient(tourImg),
   backgroundPosition: 'center',
   clipPath: theme.clipPath.singleWedge,
