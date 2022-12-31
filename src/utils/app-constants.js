@@ -1,6 +1,7 @@
 export const queryKeys = {
   topTours: 'top-tours',
   tourBySlug: 'tour-by-slug',
+  me: 'me',
 };
 
 export const gradients = [

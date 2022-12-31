@@ -53,9 +53,9 @@ const Tour = ({ gradient, tour }) => (
       <Stack gap={1}>
         <Typography variant='body1'>
           <Typography
+            component='span'
             variant='body1'
             fontWeight={600}
-            display='inline'
             mr={0.5}>
             ${tour.price}
           </Typography>
@@ -63,6 +63,7 @@ const Tour = ({ gradient, tour }) => (
         </Typography>
         <Typography variant='body1'>
           <Typography
+            component='span'
             variant='body1'
             fontWeight={600}
             display='inline'

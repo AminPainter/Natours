@@ -16,3 +16,11 @@ export const getTourBySlug = async ({ queryKey }) => {
 
   return data?.[0];
 };
+
+export const getMe = async () => {
+  const {
+    data: { data },
+  } = await axios.get(`/users/me`);
+
+  return data;
+};

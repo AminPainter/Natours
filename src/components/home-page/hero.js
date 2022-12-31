@@ -3,14 +3,9 @@ import { Stack, styled, Typography } from '@mui/material';
 
 import { Button } from 'ui';
 import heroImg from 'images/hero.jpg';
-import logoImg from 'images/logo-white.png';
 
 const Hero = () => (
   <Header>
-    <div>
-      <Logo src={logoImg} />
-    </div>
-
     <Stack gap={4} alignItems='center' justifyContent='center' mt={15}>
       <HeadingPrimary variant='h1'>outdoors</HeadingPrimary>
       <HeadingSecondary variant='h6'>is where life happens</HeadingSecondary>
@@ -21,15 +16,12 @@ const Hero = () => (
 
 const Header = styled('header')(({ theme }) => ({
   height: '95vh',
+  marginTop: theme.spacing(-10),
   padding: theme.spacing(5),
   backgroundImage: theme.utils.createGradient(heroImg),
   backgroundPosition: 'top',
   clipPath: theme.clipPath.singleWedge,
 }));
-
-const Logo = styled('img')({
-  width: '5rem',
-});
 
 const HeadingPrimary = styled(Typography)(({ theme }) => ({
   letterSpacing: '1.5rem',

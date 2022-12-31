@@ -9,15 +9,17 @@ import 'styles/global.css';
 const queryClient = new QueryClient({
   queryCache: new QueryCache({
     onError(error) {
-      alert('Something went wrong');
+      // alert('Something went wrong');
     },
   }),
 });
 
-export const App = ({ children }) => (
+const App = ({ children }) => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider theme={theme}>
       <Layout>{children}</Layout>
     </ThemeProvider>
   </QueryClientProvider>
 );
+
+export default App;
