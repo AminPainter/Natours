@@ -27,7 +27,7 @@ const Tours = () => {
           </>
         ) : (
           tours.map((tour, i) => (
-            <Tour key={tour.id} gradient={gradients[i]} {...tour} />
+            <Tour key={tour.id} gradient={gradients[i]} tour={tour} />
           ))
         )}
       </Grid>

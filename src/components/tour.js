@@ -19,37 +19,60 @@ const TourBullet = ({ icon, text }) => (
   </Stack>
 );
 
-const Tour = ({ gradient, imageCover, name, slug }) => (
+const Tour = ({ gradient, tour }) => (
   <TourCard>
     <TourHeader>
-      <TourMedia gradient={gradient} img={imageCover} image={null} />
+      <TourMedia gradient={gradient} img={tour.imageCover} />
       <TourTitleBox variant='h5'>
-        <TourTitle gradient={gradient}>{name}</TourTitle>
+        <TourTitle gradient={gradient}>{tour.name}</TourTitle>
       </TourTitleBox>
     </TourHeader>
 
     <TourSummary>
       <Typography textTransform='uppercase' fontWeight={600} variant='body1'>
-        medium 7-day tour
+        {tour.difficulty} {tour.duration}-day tour
       </Typography>
       <Typography mt={2} fontStyle='italic' variant='body2'>
-        Exploring the jaw-dropping US east coast by foot and by boat
+        {tour.summary}
       </Typography>
-
       <Grid columns={2} mt={3} gap={1}>
         <TourBullet icon='MapPin' text='Miami, USA' />
-        <TourBullet icon='Calendar' text='June 2022' />
+        <TourBullet
+          icon='Calendar'
+          text={new Intl.DateTimeFormat(navigator.language, {
+            month: 'long',
+            year: 'numeric',
+          }).format(new Date(tour.startDates[0]))}
+        />
         <TourBullet icon='Flag' text='4 stops' />
-        <TourBullet icon='User' text='15 people' />
+        <TourBullet icon='User' text={`${tour.maxGroupSize} people`} />
       </Grid>
     </TourSummary>
 
     <TourCta>
       <Stack gap={1}>
-        <Typography variant='body1'>$479 per person</Typography>
-        <Typography variant='body1'>4.3 rating</Typography>
+        <Typography variant='body1'>
+          <Typography
+            variant='body1'
+            fontWeight={600}
+            display='inline'
+            mr={0.5}>
+            ${tour.price}
+          </Typography>
+          per person
+        </Typography>
+        <Typography variant='body1'>
+          <Typography
+            variant='body1'
+            fontWeight={600}
+            display='inline'
+            mr={0.5}>
+            {tour.ratingsAverage}
+          </Typography>
+          rating
+        </Typography>
       </Stack>
-      <Button component={Link} to={`/tours/${slug}`} variant='primary'>
+      <Button component={Link} to={`/tours/${tour.slug}`} variant='primary'>
         details
       </Button>
     </TourCta>
