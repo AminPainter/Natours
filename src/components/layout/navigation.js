@@ -28,10 +28,15 @@ const Navigation = () => {
           </Tooltip>
         ) : (
           <GoogleButton
-            component={'a'}
-            href={`${process.env.GATSBY_SERVICE_URL}/auth/login?sourceUri=${
-              typeof window !== 'undefined' && window.location.href
-            }`}
+            onClick={() => {
+              location.assign(
+                `${
+                  process.env.GATSBY_SERVICE_URL
+                }/auth/login?sourceUri=${encodeURIComponent(
+                  window.location.href
+                )}`
+              );
+            }}
             variant='contained'
             startIcon={<GoogleIcon src={googleImg} />}>
             continue with google

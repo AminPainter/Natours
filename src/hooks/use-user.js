@@ -7,7 +7,11 @@ const useUser = () => {
     data: user,
     isLoading,
     error,
-  } = useQuery(queryKeys.me, getMe, { retry: false });
+  } = useQuery(queryKeys.me, getMe, {
+    retry: false,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+  });
   return { user, isLoading, error };
 };
 
