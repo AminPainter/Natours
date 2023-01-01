@@ -24,7 +24,7 @@ const TourIntro = ({ tour }) => (
         <Stack direction='row' alignItems='center'>
           <Icon name='MapPin' color='common.white' />
           <Typography color='common.white' variant='body1'>
-            {tour.startLocation}
+            {tour.startLocation.description}
           </Typography>
         </Stack>
       </Stack>

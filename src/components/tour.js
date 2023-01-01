@@ -36,7 +36,7 @@ const Tour = ({ gradient, tour }) => (
         {tour.summary}
       </Typography>
       <Grid columns={2} mt={3} gap={1}>
-        <TourBullet icon='MapPin' text='Miami, USA' />
+        <TourBullet icon='MapPin' text={tour.startLocation.description} />
         <TourBullet
           icon='Calendar'
           text={new Intl.DateTimeFormat(navigator.language, {
@@ -44,7 +44,7 @@ const Tour = ({ gradient, tour }) => (
             year: 'numeric',
           }).format(new Date(tour.startDates[0]))}
         />
-        <TourBullet icon='Flag' text='4 stops' />
+        <TourBullet icon='Flag' text={`${tour.locations.length} stops`} />
         <TourBullet icon='User' text={`${tour.maxGroupSize} people`} />
       </Grid>
     </TourSummary>
@@ -68,7 +68,7 @@ const Tour = ({ gradient, tour }) => (
             fontWeight={600}
             display='inline'
             mr={0.5}>
-            {tour.ratingsAverage}
+            {tour.ratingsAverage.toFixed(1)}
           </Typography>
           rating
         </Typography>
