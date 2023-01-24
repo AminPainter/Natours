@@ -29,14 +29,25 @@ const HeadingPrimary = styled(Typography)(({ theme }) => ({
   textTransform: 'uppercase',
   color: theme.palette.grey[200],
   fontWeight: 400,
+
+  [theme.breakpoints.down('sm')]: {
+    letterSpacing: '.5rem',
+    fontSize: '4rem',
+  },
 }));
 
-const HeadingSecondary = styled(HeadingPrimary)({
+const HeadingSecondary = styled(HeadingPrimary)(({ theme }) => ({
   letterSpacing: '1rem',
   fontSize: '1.25rem',
   wordSpacing: '1rem',
   fontWeight: 800,
   textShadow: '0 .5rem 1rem rgba(0,0,0,0.15)',
-});
+
+  [theme.breakpoints.down('sm')]: {
+    wordSpacing: '.1rem',
+    letterSpacing: '.5rem',
+    fontSize: '1rem',
+  },
+}));
 
 export default Hero;

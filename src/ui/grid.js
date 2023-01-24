@@ -1,14 +1,31 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, styled } from '@mui/material';
 
 const Grid = ({ children, columns = 3, gap = 5.5, ...rest }) => (
-  <Box
-    display='grid'
-    gridTemplateColumns={`repeat(${columns}, 1fr)`}
-    gap={gap}
-    {...rest}>
+  <StyledGrid columns={columns} {...rest} gap={gap}>
     {children}
-  </Box>
+  </StyledGrid>
+);
+
+const StyledGrid = styled(Box)(
+  ({ theme, gap, columns, singleColumnWidth = 0, responsive = true }) => {
+    let styles = {
+      display: 'grid',
+      gridTemplateColumns: `repeat(${columns}, 1fr)`,
+      gap: theme.spacing(gap),
+    };
+
+    if (responsive) {
+      styles = Object.assign(styles, {
+        [theme.breakpoints.down('md')]: {
+          gridTemplateColumns: 'none',
+          justifyContent: 'center',
+        },
+      });
+    }
+
+    return styles;
+  }
 );
 
 export default Grid;

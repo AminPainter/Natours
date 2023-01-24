@@ -1,15 +1,23 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, styled } from '@mui/material';
 
 import Footer from './footer';
 import Navigation from './navigation';
 
 const Layout = ({ children }) => (
-  <Box padding={4.5}>
+  <PaddedBox>
     <Navigation />
     {children}
     <Footer />
-  </Box>
+  </PaddedBox>
 );
+
+const PaddedBox = styled(Box)(({ theme }) => ({
+  padding: theme.spacing(4.5),
+
+  [theme.breakpoints.down('md')]: {
+    padding: 0,
+  },
+}));
 
 export default Layout;

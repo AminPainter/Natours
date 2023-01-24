@@ -10,7 +10,7 @@ const Gallery = () => (
   <Section mt={-20} pt={30} pb={30}>
     <Heading>exciting tours for adventurous people</Heading>
 
-    <Grid columns={2} mt={15}>
+    <MainGrid columns={2}>
       <Stack gap={3}>
         <Typography variant='h6' textTransform='uppercase' fontWeight={600}>
           You're going to fall in love with nature
@@ -39,9 +39,17 @@ const Gallery = () => (
         <Photo src={galleryImg2} top='2rem' right='0' />
         <Photo src={galleryImg3} top='6rem' left='20%' />
       </Photos>
-    </Grid>
+    </MainGrid>
   </Section>
 );
+
+const MainGrid = styled(Grid)(({ theme }) => ({
+  marginTop: theme.spacing(15),
+
+  [theme.breakpoints.down('md')]: {
+    marginTop: theme.spacing(5),
+  },
+}));
 
 const Photos = styled('div')({
   position: 'relative',
