@@ -31,7 +31,9 @@ const Gallery = () => (
           nulla deserunt voluptatum nam.
         </Typography>
 
-        <Button>Learn more &nbsp; &rarr;</Button>
+        <Button sx={{ alignSelf: 'flex-start' }}>
+          Learn more &nbsp; &rarr;
+        </Button>
       </Stack>
 
       <Photos>
