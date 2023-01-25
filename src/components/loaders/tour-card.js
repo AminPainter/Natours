@@ -27,10 +27,10 @@ const SkeletonContainer = styled(Stack)({
   boxShadow: '0 .5rem 1rem rgba(0,0,0,0.1)',
 });
 
-const SkeletonImg = styled(Skeleton)(({ theme }) => ({
-  clipPath: theme.clipPath.singleWedge,
+const SkeletonImg = styled(Skeleton)({
+  clipPath: 'polygon(0 0, 100% 0%, 100% 83%, 0% 98%)',
   height: '15rem',
-}));
+});
 
 const SkeletonCta = styled(Skeleton)({
   flex: '1 0 5.5rem',

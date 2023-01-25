@@ -2,7 +2,13 @@ import React from 'react';
 import { useQuery } from 'react-query';
 
 import SiteSeo from 'components/seo';
-import { TourIntro, Briefing, Gallery, TourMap } from 'components/tour-page';
+import {
+  TourIntro,
+  Briefing,
+  Gallery,
+  TourMap,
+  Reviews,
+} from 'components/tour-page';
 import { queryKeys } from 'utils/app-constants';
 import { getTourBySlug } from 'utils/query-functions';
 
@@ -20,6 +26,7 @@ const TourDetailsPage = ({ params: { slug } }) => {
       <Briefing tour={tour} />
       <Gallery images={tour.images} />
       <TourMap />
+      <Reviews reviews={tour.reviews} />
     </>
   );
 };

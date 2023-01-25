@@ -35,7 +35,7 @@ const Tour = ({ gradient, tour }) => (
       <Typography mt={2} fontStyle='italic' variant='body2'>
         {tour.summary}
       </Typography>
-      <Grid columns={2} mt={3} gap={1} responsive={false}>
+      <Grid columns={2} mt={3} gap={1} responsive={0}>
         <TourBullet icon='MapPin' text={tour.startLocation.description} />
         <TourBullet
           icon='Calendar'

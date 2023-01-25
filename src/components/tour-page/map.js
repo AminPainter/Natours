@@ -15,7 +15,7 @@ const TourMap = () => {
     <Map
       style='mapbox://styles/amin-ud-daula/ckbyqljju23961iqrnbxjz3pk'
       containerStyle={{
-        height: '28rem',
+        height: '30rem',
         width: '100%',
         marginTop: theme.margin.skewCover,
         clipPath: theme.clipPath.singleWedge,

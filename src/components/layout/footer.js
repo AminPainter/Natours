@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import { Box, Stack, styled } from '@mui/material';
 
 import { Grid } from 'ui';
@@ -17,18 +16,42 @@ const Footer = () => (
           justifyContent='space-between'
           borderTop='1px solid rgba(255,255,255,.4)'
           pt={2}>
-          <ExternalLink to='/'>company</ExternalLink>
-          <ExternalLink to='/'>contacts</ExternalLink>
-          <ExternalLink to='/'>careers</ExternalLink>
-          <ExternalLink to='/'>policy</ExternalLink>
-          <ExternalLink to='/'>terms</ExternalLink>
+          <ExternalLink target='_blank' href='https://aminpainter.netlify.app/'>
+            portfolio
+          </ExternalLink>
+          <ExternalLink target='_blank' href='https://github.com/AminPainter'>
+            github
+          </ExternalLink>
+          <ExternalLink
+            target='_blank'
+            href='https://www.instagram.com/amin_painter/'>
+            instagram
+          </ExternalLink>
+          <ExternalLink
+            target='_blank'
+            href='https://github.com/AminPainter/natours-app'>
+            frontend
+          </ExternalLink>
+          <ExternalLink
+            target='_blank'
+            href='https://github.com/AminPainter/natours-core'>
+            backend
+          </ExternalLink>
         </Stack>
         <Box borderTop='1px solid rgba(255,255,255,.4)' pt={2}>
           <p>
-            &copy; Copyright is a form of legal protection that gives you
-            ownership rights to your original works. The moment you create a
-            work of creative expression that falls within the scope of US
-            copyright laws, it is automatically protected by law.
+            &copy; Copyright 2023 - 2053. Built by
+            <ExternalLink
+              target='_blank'
+              href='https://aminpainter.netlify.app/'>
+              Mohammed Amin Painter.
+            </ExternalLink>
+            Inspired by
+            <ExternalLink
+              target='_blank'
+              href='https://twitter.com/jonasschmedtman'>
+              Jonas Schmedtman.
+            </ExternalLink>
           </p>
         </Box>
       </Grid>
@@ -48,7 +71,8 @@ const Logo = styled('img')({
   margin: '0 auto',
 });
 
-const ExternalLink = styled(Link)(({ theme }) => ({
+const ExternalLink = styled('a')(({ theme }) => ({
+  display: 'inline-block',
   textTransform: 'uppercase',
   transition: 'all .3s',
   padding: theme.spacing(0.5, 1),
