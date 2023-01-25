@@ -8,6 +8,7 @@ import {
   Gallery,
   TourMap,
   Reviews,
+  BookNow,
 } from 'components/tour-page';
 import { queryKeys } from 'utils/app-constants';
 import { getTourBySlug } from 'utils/query-functions';
@@ -27,6 +28,7 @@ const TourDetailsPage = ({ params: { slug } }) => {
       <Gallery images={tour.images} />
       <TourMap />
       <Reviews reviews={tour.reviews} />
+      <BookNow duration={tour.duration} images={tour.images} />
     </>
   );
 };
