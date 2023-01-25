@@ -24,8 +24,8 @@ const QuickPoint = ({ element, mainText, subText }) => (
 );
 
 const Briefing = ({ tour }) => (
-  <Grid columns={2} gap={0} mt={-20}>
-    <GreyBox py={35}>
+  <Grid columns={2} gap={0} mt={theme => theme.margin.skewCover}>
+    <GreyBox py={theme => theme.padding.skewCover}>
       <Container maxWidth='xs'>
         <Heading variant='h5' textAlign='left' mb={4}>
           quick facts

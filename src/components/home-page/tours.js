@@ -15,7 +15,10 @@ const Tours = () => {
   );
 
   return (
-    <Section mt={-30} pt={30} pb={10}>
+    <Section
+      mt={theme => theme.margin.skewCover}
+      pt={theme => theme.padding.skewCover}
+      pb={10}>
       <Heading>most popular tours</Heading>
 
       <Grid columns={3} my={10}>

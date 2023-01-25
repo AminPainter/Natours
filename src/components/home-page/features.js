@@ -73,7 +73,7 @@ const FeatureCard = styled(Card)(({ theme }) => ({
 const SectionWithBackground = styled(Section)(({ theme }) => ({
   backgroundImage: theme.utils.createGradient(backgroundImg),
   backgroundPosition: 'top',
-  marginTop: theme.spacing(-25),
-  padding: theme.spacing(30, 0, 50),
+  marginTop: theme.margin.skewCover,
+  padding: theme.spacing(theme.padding.skewCover, 0),
   clipPath: theme.clipPath.dualWedge,
 }));

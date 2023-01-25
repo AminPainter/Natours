@@ -22,8 +22,16 @@ export default createTheme({
   },
 
   clipPath: {
-    singleWedge: 'polygon(0 0, 100% 0, 100% 80%, 0 100%)',
-    dualWedge: 'polygon(0 20%, 100% 0, 100% 80%, 0 100%)',
+    singleWedge: 'polygon(0 0, 100% 0, 100% calc(100% - 9vw), 0 100%)',
+    dualWedge: 'polygon(0 9vw, 100% 0, 100% calc(100% - 9vw), 0 100%)',
+  },
+
+  margin: {
+    skewCover: 'calc(0px - 9vw)',
+  },
+
+  padding: {
+    skewCover: 'calc(5rem + 9vw)',
   },
 
   utils: {

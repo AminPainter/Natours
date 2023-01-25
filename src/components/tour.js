@@ -98,7 +98,7 @@ const TourMedia = styled(Box)(
     gradient = [theme.palette.primary.light, theme.palette.primary.dark],
   }) => ({
     height: '100%',
-    clipPath: theme.clipPath.singleWedge,
+    clipPath: 'polygon(0 0, 100% 0%, 100% 83%, 0% 98%)',
     backgroundImage: `linear-gradient(to right bottom, ${gradient[0]}, ${gradient[1]}), url(${img})`,
     backgroundBlendMode: 'screen',
     backgroundSize: 'cover',

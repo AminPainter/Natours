@@ -7,7 +7,10 @@ import galleryImg2 from 'images/nat-2.jpg';
 import galleryImg3 from 'images/nat-3.jpg';
 
 const Gallery = () => (
-  <Section mt={-20} pt={30} pb={30}>
+  <Section
+    mt={theme => theme.margin.skewCover}
+    pt={theme => theme.padding.skewCover}
+    pb={30}>
     <Heading>exciting tours for adventurous people</Heading>
 
     <MainGrid columns={2}>
