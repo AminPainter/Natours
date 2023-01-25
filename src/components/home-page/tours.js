@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { Stack } from '@mui/material';
 import { useQuery } from 'react-query';
 
@@ -36,7 +37,9 @@ const Tours = () => {
       </Grid>
 
       <Stack alignItems='center'>
-        <Button variant='primary'>discover all tours</Button>
+        <Button variant='primary' component={Link} to='/tours'>
+          discover all tours
+        </Button>
       </Stack>
     </Section>
   );

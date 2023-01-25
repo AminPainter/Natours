@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { Stack, styled, Typography } from '@mui/material';
 
 import { Button } from 'ui';
@@ -9,7 +10,9 @@ const Hero = () => (
     <Stack gap={4} alignItems='center' justifyContent='center' mt={15}>
       <HeadingPrimary variant='h1'>outdoors</HeadingPrimary>
       <HeadingSecondary variant='h6'>is where life happens</HeadingSecondary>
-      <Button>discover our tours</Button>
+      <Button component={Link} to='/tours'>
+        discover our tours
+      </Button>
     </Stack>
   </Header>
 );

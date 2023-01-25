@@ -7,6 +7,13 @@ export const getPopularTours = async () => {
   return data;
 };
 
+export const getAllTours = async () => {
+  const {
+    data: { data },
+  } = await axios.get('/tours');
+  return data;
+};
+
 export const getTourBySlug = async ({ queryKey }) => {
   const [, slug] = queryKey;
 
