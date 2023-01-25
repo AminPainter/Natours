@@ -6,6 +6,7 @@ import { Section } from 'ui';
 
 const dummyData = [
   {
+    id: 1,
     author: {
       name: 'Amin Painter',
       picture: 'adasd',
@@ -15,6 +16,7 @@ const dummyData = [
     rating: 3.5,
   },
   {
+    id: 2,
     author: {
       name: 'Amin Painter',
       picture: 'adasd',
@@ -24,6 +26,7 @@ const dummyData = [
     rating: 3.5,
   },
   {
+    id: 3,
     author: {
       name: 'Amin Painter',
       picture: 'adasd',
@@ -33,6 +36,7 @@ const dummyData = [
     rating: 3.5,
   },
   {
+    id: 4,
     author: {
       name: 'Amin Painter',
       picture: 'adasd',
@@ -42,6 +46,7 @@ const dummyData = [
     rating: 3.5,
   },
   {
+    id: 5,
     author: {
       name: 'Amin Painter',
       picture: 'adasd',
@@ -51,6 +56,7 @@ const dummyData = [
     rating: 3.5,
   },
   {
+    id: 6,
     author: {
       name: 'Amin Painter',
       picture: 'adasd',
@@ -60,6 +66,7 @@ const dummyData = [
     rating: 3.5,
   },
   {
+    id: 7,
     author: {
       name: 'Amin Painter',
       picture: 'adasd',
@@ -69,6 +76,7 @@ const dummyData = [
     rating: 3.5,
   },
   {
+    id: 8,
     author: {
       name: 'Amin Painter',
       picture: 'adasd',
@@ -83,7 +91,7 @@ const Reviews = ({ reviews = dummyData }) => (
   <SectionWithBackground>
     <ScrollableReviews direction='row' gap={5}>
       {reviews.map(review => (
-        <Review {...review} />
+        <Review key={review.id} {...review} />
       ))}
     </ScrollableReviews>
   </SectionWithBackground>

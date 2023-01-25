@@ -15,8 +15,8 @@ const BookNow = ({ duration, images }) => {
           justifyContent='space-between'
           alignItems='center'>
           <Stack direction='row'>
-            {images.map(img => (
-              <AestheticImg alt='aesthetic' src={img} />
+            {images.map((img, i) => (
+              <AestheticImg key={i} alt='aesthetic' src={img} />
             ))}
           </Stack>
 
@@ -56,17 +56,17 @@ const AestheticImg = styled('img')(({ theme }) => ({
   left: 0,
   top: '50%',
 
-  '&:first-child': {
+  '&:first-of-type': {
     zIndex: 10,
     transform: 'translate(-35%, -50%)',
   },
 
-  '&:nth-child(2)': {
+  '&:nth-of-type(2)': {
     transform: 'translate(-10%, -50%) scale(0.97)',
     zIndex: 9,
   },
 
-  '&:nth-child(3)': {
+  '&:nth-of-type(3)': {
     transform: 'translate(15%, -50%) scale(0.94)',
     zIndex: 8,
   },
