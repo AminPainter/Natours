@@ -27,7 +27,15 @@ export const getTourBySlug = async ({ queryKey }) => {
 export const getMe = async () => {
   const {
     data: { data },
-  } = await axios.get(`/users/me`);
+  } = await axios.get('/users/me');
+
+  return data;
+};
+
+export const bookTour = async tourId => {
+  const {
+    data: { data },
+  } = await axios.get(`/bookings/book-tour/${tourId}`);
 
   return data;
 };

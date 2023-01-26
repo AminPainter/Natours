@@ -28,7 +28,7 @@ const TourDetailsPage = ({ params: { slug } }) => {
       <Gallery images={tour.images} />
       <TourMap />
       <Reviews reviews={tour.reviews} />
-      <BookNow duration={tour.duration} images={tour.images} />
+      <BookNow tour={tour} />
     </>
   );
 };

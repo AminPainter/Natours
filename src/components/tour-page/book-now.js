@@ -1,9 +1,57 @@
-import { Box, Container, Stack, styled, Typography } from '@mui/material';
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import {
+  Box,
+  Container,
+  Stack,
+  styled,
+  Typography,
+  useTheme,
+} from '@mui/material';
 
+import GoogleLoginButton from 'components/google-button';
 import { Section, Heading, Button } from 'ui';
+import loadScript from 'utils/load-script';
+import { bookTour } from 'utils/query-functions';
+import useUser from 'hooks/use-user';
 
-const BookNow = ({ duration, images }) => {
+const BookNow = ({ tour }) => {
+  const [razorpay, setRazorpay] = useState();
+  const { user } = useUser();
+  const theme = useTheme();
+
+  useEffect(() => {
+    (async () => {
+      setRazorpay(
+        await loadScript('https://checkout.razorpay.com/v1/checkout.js')
+      );
+    })();
+  }, []);
+
+  const displayRazorpayPopup = useCallback(async () => {
+    if (!razorpay) return;
+
+    const order = await bookTour(tour.id);
+    const options = {
+      key: process.env.RAZORPAY_KEY_ID,
+      amount: order.amount,
+      currency: 'INR',
+      name: tour.name,
+      description: `Payment for the tour ${tour.name}`,
+      image: tour.imageCover,
+      order_id: order.id,
+      prefill: {
+        name: user.name,
+        email: user.email,
+      },
+      theme: {
+        color: theme.palette.primary.main,
+      },
+    };
+
+    const paymentPortal = new window.Razorpay(options);
+    paymentPortal.open();
+  }, [razorpay, tour, user, theme.palette.primary.main]);
+
   return (
     <Section
       mt={theme => theme.margin.skewCover}
@@ -15,7 +63,7 @@ const BookNow = ({ duration, images }) => {
           justifyContent='space-between'
           alignItems='center'>
           <Stack direction='row'>
-            {images.map((img, i) => (
+            {tour.images.map((img, i) => (
               <AestheticImg key={i} alt='aesthetic' src={img} />
             ))}
           </Stack>
@@ -26,12 +74,18 @@ const BookNow = ({ duration, images }) => {
             </Heading>
 
             <Typography variant='body1'>
-              {duration} days. 1 adventure. Infinite memories. Make it all yours
-              today!
+              {tour.duration} days. 1 adventure. Infinite memories. Make it all
+              yours today!
             </Typography>
           </Box>
 
-          <Button variant='primary'>book tour now!</Button>
+          {user ? (
+            <Button variant='primary' onClick={displayRazorpayPopup}>
+              book tour now!
+            </Button>
+          ) : (
+            <GoogleLoginButton text='Login to book a tour' />
+          )}
         </Stack>
       </Book>
     </Section>

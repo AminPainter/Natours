@@ -1,17 +1,10 @@
 import React from 'react';
-import {
-  AppBar,
-  Avatar,
-  Button,
-  styled,
-  Toolbar,
-  Tooltip,
-} from '@mui/material';
+import { Link } from 'gatsby';
+import { AppBar, Avatar, styled, Toolbar, Tooltip } from '@mui/material';
 
+import GoogleLoginButton from 'components/google-button';
 import useUser from 'hooks/use-user';
 import logoImg from 'images/logo-white.png';
-import googleImg from 'images/google.png';
-import { Link } from 'gatsby';
 
 const Navigation = () => {
   const { user } = useUser();
@@ -28,20 +21,7 @@ const Navigation = () => {
             <Avatar alt={user.name} src={user.picture} />
           </Tooltip>
         ) : (
-          <GoogleButton
-            onClick={() => {
-              window.location.assign(
-                `${
-                  process.env.GATSBY_SERVICE_URL
-                }/auth/login?sourceUri=${encodeURIComponent(
-                  window.location.href
-                )}`
-              );
-            }}
-            variant='contained'
-            startIcon={<GoogleIcon src={googleImg} />}>
-            continue with google
-          </GoogleButton>
+          <GoogleLoginButton />
         )}
       </Navbar>
     </GlassyNav>
@@ -61,25 +41,6 @@ const Navbar = styled(Toolbar)({
 
 const Logo = styled('img')({
   width: '5rem',
-});
-
-const GoogleButton = styled(Button)(({ theme }) => ({
-  backgroundColor: theme.palette.common.white,
-  width: 'max-content',
-  boxShadow: 'none',
-  textTransform: 'capitalize',
-  fontWeight: theme.typography.fontWeightBold,
-  color: theme.palette.grey[700],
-
-  '&:hover, &:active': {
-    backgroundColor: theme.palette.common.white,
-    boxShadow: 'none',
-  },
-}));
-
-const GoogleIcon = styled('img')({
-  height: '2rem',
-  width: '2rem',
 });
 
 export default Navigation;
