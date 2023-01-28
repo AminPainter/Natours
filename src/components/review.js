@@ -3,17 +3,20 @@ import { Avatar, Stack, styled, Typography, Rating } from '@mui/material';
 
 import { Icon } from 'ui';
 
-const Review = ({ author, content, rating }) => (
-  <ReviewCard gap={3}>
+const Review = ({ user, review, rating }) => (
+  <ReviewCard gap={3} justifyContent='space-between'>
     <Stack direction='row' alignItems='center' justifyContent='center' gap={1}>
-      <Avatar alt={author.name} src={author.picture} />
-      <Typography variant='h6' textTransform='uppercase' color='common.black'>
-        {author.name}
+      <Avatar alt={user.name} src={user.picture} />
+      <Typography
+        variant='body1'
+        textTransform='uppercase'
+        color='common.black'>
+        {user.name}
       </Typography>
     </Stack>
 
     <Typography variant='body2' textAlign='center'>
-      {content}
+      {review}
     </Typography>
 
     <RatingStars

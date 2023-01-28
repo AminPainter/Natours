@@ -19,9 +19,9 @@ export const getTourBySlug = async ({ queryKey }) => {
 
   const {
     data: { data },
-  } = await axios.get(`/tours?slug=${slug}`);
+  } = await axios.get(`/tours/slug/${slug}`);
 
-  return data?.[0];
+  return data;
 };
 
 export const getMe = async () => {

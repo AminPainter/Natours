@@ -9,7 +9,6 @@ import {
 } from '@mui/material';
 
 import { Grid, Heading, Icon } from 'ui';
-import testImg from 'images/nat-8.jpg';
 
 const QuickPoint = ({ element, mainText, subText }) => (
   <Stack direction='row' alignItems='center' gap={3}>
@@ -64,7 +63,7 @@ const Briefing = ({ tour }) => (
           {tour.guides.map((guide, i) => (
             <QuickPoint
               key={i}
-              element={<Avatar alt={guide.name} src={testImg} />}
+              element={<Avatar alt={guide.name} src={guide.picture} />}
               mainText={guide.role}
               subText={guide.name}
             />

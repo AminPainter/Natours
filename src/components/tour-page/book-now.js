@@ -46,6 +46,9 @@ const BookNow = ({ tour }) => {
       theme: {
         color: theme.palette.primary.main,
       },
+      readonly: {
+        email: true,
+      },
     };
 
     const paymentPortal = new window.Razorpay(options);
